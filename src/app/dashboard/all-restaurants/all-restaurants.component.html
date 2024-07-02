@@ -1,1 +1,9 @@
-<p>all-restaurants works!</p>
+<div class="restaurant-list">
+    <app-restaurant-card *ngFor="let restaurant of restaurants" [restaurant]="restaurant"></app-restaurant-card>
+  </div>
+  <app-pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="goToPage($event)">
+  </app-pagination>
+  

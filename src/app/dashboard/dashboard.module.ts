@@ -4,8 +4,9 @@ import { MyBookingsComponent } from './my-bookings/my-bookings.component';
 import { AllRestaurantsComponent } from './all-restaurants/all-restaurants.component';
 import { DashboardContainerComponent } from './dashboard-container/dashboard-container.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { BookingCardComponent } from '../booking-card/booking-card.component';
+import { BookingCardComponent } from './booking-card/booking-card.component';
 import { PaginationComponent } from '../pagination/pagination.component';
+import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
 
 
 
@@ -15,7 +16,7 @@ import { PaginationComponent } from '../pagination/pagination.component';
     MyBookingsComponent,
     AllRestaurantsComponent,
     DashboardContainerComponent,
-    BookingCardComponent,PaginationComponent
+    BookingCardComponent,PaginationComponent, RestaurantCardComponent
   ],
   imports: [
     CommonModule,
