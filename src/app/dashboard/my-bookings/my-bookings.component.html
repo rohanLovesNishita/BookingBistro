@@ -1,1 +1,8 @@
-<p>my-bookings works!</p>
+<div class="booking-list">
+    <app-booking-card *ngFor="let booking of bookings" [booking]="booking"></app-booking-card>
+  </div>
+  <app-pagination
+  [currentPage]="currentPage"
+  [totalPages]="totalPages"
+  (pageChange)="goToPage($event)">
+</app-pagination>
