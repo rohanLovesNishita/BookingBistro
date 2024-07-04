@@ -1,0 +1,42 @@
+<div class="auth-container">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="fullName">Full Name</label>
+      <input id="fullName" formControlName="fullName" type="text">
+      <div *ngIf="signupForm.controls['fullName']?.invalid && signupForm.controls['fullName']?.touched" class="error">
+        Full Name is required
+      </div>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email">
+      <div *ngIf="signupForm.controls['email']?.invalid && signupForm.controls['email']?.touched" class="error">
+        <div *ngIf="signupForm.controls['email']?.errors?.['required']">Email is required</div>
+        <div *ngIf="signupForm.controls['email']?.errors?.['email']">Invalid email format</div>
+        <div *ngIf="signupForm.controls['email']?.errors?.['pattern']">Email must be &#64;xyz.com or &#64;xyz.in</div>
+      </div>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password">
+      <button type="button" (click)="togglePasswordVisibility()">
+        <i class="eye-icon">{{ showPassword ? '🙈' : '👁️' }}</i>
+      </button>
+      <div *ngIf="signupForm.controls['password']?.invalid && signupForm.controls['password']?.touched" class="error">
+        Password is required
+      </div>
+    </div>
+    <div>
+      <label for="phoneNumber">Phone Number</label>
+      <input id="phoneNumber" formControlName="phoneNumber" type="text">
+      <div *ngIf="signupForm.controls['phoneNumber']?.invalid && signupForm.controls['phoneNumber']?.touched" class="error">
+        <div *ngIf="signupForm.controls['phoneNumber']?.errors?.['required']">Phone Number is required</div>
+        <div *ngIf="signupForm.controls['phoneNumber']?.errors?.['pattern']">Phone Number must be 10 digits</div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="loading">
+      <span *ngIf="!loading">Sign Up</span>
+      <span *ngIf="loading" class="spinner"></span>
+    </button>
+  </form>
+</div>
