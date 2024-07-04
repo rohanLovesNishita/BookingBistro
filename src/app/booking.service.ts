@@ -36,4 +36,30 @@ export class BookingService {
     }
     return bookings;
   }
+
+  // getRestaurantData(restaurantId: string): Observable<any> {
+  //   // Replace with actual API endpoint in real application
+  //   return this.http.get<any>(`/api/restaurants/${restaurantId}`);
+  // }
+
+  // Mock method to generate fake restaurant data
+  getFakeRestaurantData(): Observable<any[]> {
+    // Mock data generation
+    const restaurants: any[] = [];
+    const numberOfRestaurants = 5; // Adjust the number of fake restaurants as needed
+
+    for (let i = 1; i <= numberOfRestaurants; i++) {
+      const restaurant = {
+        id: `rest-${i}`,
+        name: `Restaurant ${i}`,
+        workingDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        workingHours: '10:00 AM - 8:00 PM',
+        timeSlotInterval: '1 hour',
+        maxPeoplePerSlot: Math.floor(Math.random() * 10) + 5 // Random number between 5 and 14
+      };
+      restaurants.push(restaurant);
+    }
+
+    return of(restaurants); // Simulate Observable from HTTP call
+  }
 }
